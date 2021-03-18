@@ -39,18 +39,30 @@
  */
 #}
 
-{% if promoted %}
-<div class="services--business services--list-block mb-5 col-12">
-	<h2>
-		<a href="{{ field_link }}">{{ content.localgov_ia_block_title }}</a>
-	</h2>
-	{{ list }}
+{% 
+  set classes = [
+    'ia-block',
+    promoted ? 'ia-block--promoted'
+  ]
+%}
+
+<div{{ attributes.addClass(classes)}}>
+	{# Check if we have a title so we don't print an empty H2 #}
+  {% if paragraph.localgov_ia_block_title.value %}
+    <h2>
+			{# Don't print a anchor tag unless the title is linked #}
+    {% if field_link %}
+      <a href="{{ field_link }}">{{ content.localgov_ia_block_title }}</a>
+    {% else %}
+      {{ content.localgov_ia_block_title }}
+    {% endif %}
+    </h2>
+  {% endif %}
+
+	{# 
+		Render the list of links 
+		- this variable is created in localgov_homepage_paragraphs.module 
+	#}
+  {{ list }}
+	
 </div>
-{% else %}
-<div class="services--list-block mt-4 col-sm-6 col-md-4">
-	<h2>
-		<a href="{{ field_link }}">{{ content.localgov_ia_block_title }}</a>
-	</h2>
-	{{ list }}
-</div>
-{% endif %}
