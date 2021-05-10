@@ -29,7 +29,10 @@ class HomepageAddTest extends BrowserTestBase {
    */
   public function testCreateHomepage() {
 
-    $account = $this->drupalCreateUser(['create localgov_dummy_homepage content', 'view own unpublished content']);
+    $account = $this->drupalCreateUser([
+      'create localgov_dummy_homepage content',
+      'view own unpublished content',
+    ]);
     $this->drupalLogin($account);
 
     $this->drupalGet('node/add/localgov_dummy_homepage');

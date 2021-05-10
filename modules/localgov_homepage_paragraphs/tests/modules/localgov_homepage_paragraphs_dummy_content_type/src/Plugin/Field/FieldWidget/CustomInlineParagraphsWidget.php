@@ -8,7 +8,7 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\Plugin\Field\FieldWidget\InlineParagraphsWidget;
 
 /**
- * Class CustomInlineParagraphsWidget.
+ * Class custom inline paragraphs widget.
  *
  * @package Drupal\localgov_homepage_paragraphs_dummy_content_type\Plugin\Field\FieldWidget
  *

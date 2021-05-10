@@ -81,12 +81,12 @@ class ParagraphsAdministrationTest extends ParagraphsTestBase {
 
     // Add a new paragraph node with a text paragraph field.
     $this->drupalGet('node/add/paragraphs');
-    $this->drupalPostForm(NULL, [], 'field_paragraphs_localgov_text_add_more');
+    $this->submitForm([], 'field_paragraphs_localgov_text_add_more');
     $edit = [
       'title[0][value]' => 'Test',
       'field_paragraphs[0][subform][localgov_text][0][value]' => 'Test paragraph text',
     ];
-    $this->drupalPostForm(NULL, $edit, 'Save');
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains('has been created');
     $this->assertSession()->pageTextContains('Test paragraph text');
   }
