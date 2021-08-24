@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Update hooks.
+ */
+
+use Drupal\Core\Utility\UpdateException;
+
+/**
+ * Implements hook_update_N().
+ *
+ * Switching to horizontal tab from vertical tab for Contact paragraph.  This
+ * is to avoid a core bug.
+ *
+ * @see https://www.drupal.org/project/drupal/issues/3223319
+ */
+function localgov_paragraphs_update_9001() {
+
+  $contact_form_config = Drupal::service('entity_type.manager')->getStorage('entity_form_display')->load('paragraph.localgov_contact.default');
+  if (empty($contact_form_config)) {
+    return;
+  }
+
+  $top_tab_settings = $contact_form_config->getThirdPartySetting('field_group', 'group_contact_tabs');
+  if (empty($top_tab_settings)) {
+    return t('Cannot find tab configuration for Contact paragraph.');
+  }
+
+  $is_already_horizontal_tab = ($top_tab_settings['format_settings']['direction'] === 'horizontal');
+  if ($is_already_horizontal_tab) {
+    return t('Contact paragraph is already using horizontal tabs.  Nothing to update.');
+  }
+
+  $updated_top_tab_settings = $top_tab_settings;
+  $updated_top_tab_settings['format_settings']['direction'] = 'horizontal';
+
+  try {
+    $contact_form_config->setThirdPartySetting('field_group', 'group_contact_tabs', $updated_top_tab_settings);
+    $contact_form_config->save();
+  }
+  catch (Exception $e) {
+    throw new UpdateException($e->getMessage());
+  }
+
+  $magenta = "\033[35m";
+  $colour_off = "\033[0m";
+  return t("Switched Contact paragraph form display tab from vertical to horizontal tab.  Please %magenta**export site configuration**%colour_off.", [
+    '%magenta' => $magenta,
+    '%colour_off' => $colour_off,
+  ]);
+}
