@@ -43,8 +43,8 @@ function localgov_paragraphs_update_9001() {
     throw new UpdateException($e->getMessage());
   }
 
-  $magenta = "\033[35m";
-  $colour_off = "\033[0m";
+  $is_terminal = PHP_SAPI === 'cli' && getenv('TERM');
+  [$magenta, $colour_off] = $is_terminal ? ["\033[35m", "\033[0m"] : ['', ''];
   return t("Switched Contact paragraph form display tab from vertical to horizontal tab.  Please %magenta**export site configuration**%colour_off.", [
     '%magenta' => $magenta,
     '%colour_off' => $colour_off,
