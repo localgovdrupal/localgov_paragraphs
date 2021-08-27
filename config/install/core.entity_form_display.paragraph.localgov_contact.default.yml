@@ -22,7 +22,7 @@ dependencies:
   module:
     - address
     - field_group
-    - geolocation
+    - geolocation_google_maps
     - link
     - office_hours
     - telephone
@@ -42,7 +42,7 @@ third_party_settings:
       format_settings:
         id: ''
         classes: ''
-        direction: vertical
+        direction: horizontal
       label: Tabs
     group_phone:
       children:
