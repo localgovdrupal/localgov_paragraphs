@@ -10,12 +10,24 @@ use Drupal\Core\Utility\UpdateException;
 /**
  * Implements hook_update_N().
  *
- * Switching to horizontal tab from vertical tab for Contact paragraph.  This
- * is to avoid a core bug.
+ * Outdated update.  Retaining to preserve update *numbering*.
  *
- * @see https://www.drupal.org/project/drupal/issues/3223319
+ * In the past, this update *switched* Contact paragraph's form display from
+ * vertical tab to horizontal tab.  This was to avoid a core bug.  That bug has
+ * since been fixed, so we no longer need that change.
+ *
+ * @see https://www.drupal.org/project/drupal/issues/3219340
  */
-function localgov_paragraphs_update_9001() {
+function localgov_paragraphs_update_9001() {}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Reverts any changes introduced by the *previous incarnation* of
+ * localgov_paragraphs_update_9001() where it switched Contact paragraph's form
+ * display from vertical to horizontal tab to avoid a core bug.
+ */
+function localgov_paragraphs_update_9002() {
 
   $contact_form_config = Drupal::service('entity_type.manager')->getStorage('entity_form_display')->load('paragraph.localgov_contact.default');
   if (empty($contact_form_config)) {
@@ -27,13 +39,13 @@ function localgov_paragraphs_update_9001() {
     return t('Cannot find tab configuration for Contact paragraph.');
   }
 
-  $is_already_horizontal_tab = ($top_tab_settings['format_settings']['direction'] === 'horizontal');
-  if ($is_already_horizontal_tab) {
-    return t('Contact paragraph is already using horizontal tabs.  Nothing to update.');
+  $is_already_vertical_tab = ($top_tab_settings['format_settings']['direction'] === 'vertical');
+  if ($is_already_vertical_tab) {
+    return t('Contact paragraph is already using vertical tabs.  Nothing to update.');
   }
 
   $updated_top_tab_settings = $top_tab_settings;
-  $updated_top_tab_settings['format_settings']['direction'] = 'horizontal';
+  $updated_top_tab_settings['format_settings']['direction'] = 'vertical';
 
   try {
     $contact_form_config->setThirdPartySetting('field_group', 'group_contact_tabs', $updated_top_tab_settings);
@@ -45,7 +57,7 @@ function localgov_paragraphs_update_9001() {
 
   $is_terminal = PHP_SAPI === 'cli' && getenv('TERM');
   [$magenta, $colour_off] = $is_terminal ? ["\033[35m", "\033[0m"] : ['', ''];
-  return t("Switched Contact paragraph form display tab from vertical to horizontal tab.  Please %magenta%action-msg%colour_off.", [
+  return t("Switched Contact paragraph form display tab from horizontal to vertical tab.  Please %magenta%action-msg%colour_off.", [
     '%magenta' => $magenta,
     '%colour_off' => $colour_off,
     '%action-msg' => '**export site configuration**',
