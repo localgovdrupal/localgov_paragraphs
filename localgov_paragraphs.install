@@ -18,7 +18,8 @@ use Drupal\Core\Utility\UpdateException;
  *
  * @see https://www.drupal.org/project/drupal/issues/3219340
  */
-function localgov_paragraphs_update_9001() {}
+function localgov_paragraphs_update_9001() {
+}
 
 /**
  * Implements hook_update_N().
