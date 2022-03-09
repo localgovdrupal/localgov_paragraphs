@@ -7,10 +7,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Validates Contact Page component edit form.
  *
- * We should be able to edit Contact Page components.  Drupal core bugs
- * shouldn't throw exceptions.
- *
- * @see https://www.drupal.org/project/drupal/issues/3223319
+ * We should be able to edit Contact Page components.
  */
 class ContactEditTest extends BrowserTestBase {
 
