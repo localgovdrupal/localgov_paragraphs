@@ -22,7 +22,7 @@ dependencies:
   module:
     - address
     - field_group
-    - geolocation
+    - geolocation_google_maps
     - link
     - office_hours
     - telephone
