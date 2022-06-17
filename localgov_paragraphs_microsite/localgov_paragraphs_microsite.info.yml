@@ -1,0 +1,6 @@
+type: module
+name: LocalGov Drupal Microsites paragraphs
+description: Paragraph bundles used in the LocalGov Drupal microsites
+package: LocalGov Drupal
+core_version_requirement: ^8.8 || ^9
+dependencies:
