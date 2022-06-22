@@ -1,9 +1,9 @@
 localgov_layout_onecol:
-  label: 'MS: One column'
+  label: 'One column (simple)'
   path: layouts/onecol
   template: layout--onecol
-  library: localgov_paragraphs_microsite/onecol
-  category: 'Microsites'
+  library: localgov_paragraphs_layout/onecol
+  category: 'LocalGov Drupal'
   default_region: content
   icon_map:
     - [content]
@@ -12,11 +12,11 @@ localgov_layout_onecol:
       label: Content
 
 localgov_layout_twocol:
-  label: 'MS: Two column'
+  label: 'Two column (simple)'
   path: layouts/twocol
   template: layout--twocol
-  library: localgov_paragraphs_microsite/twocol
-  category: 'Microsites'
+  library: localgov_paragraphs_layout/twocol
+  category: 'LocalGov Drupal'
   default_region: first
   icon_map:
     - [first, second]
@@ -27,11 +27,11 @@ localgov_layout_twocol:
       label: Second
 
 localgov_layout_threecol_33_34_33:
-  label: 'MS: Three column 33/34/33'
+  label: 'Three column 33/34/33 (simple)'
   path: layouts/threecol_33_34_33
   template: layout--threecol-33-34-33
-  library: localgov_paragraphs_microsite/threecol_33_34_33
-  category: 'Microsites'
+  library: localgov_paragraphs_layout/threecol_33_34_33
+  category: 'LocalGov Drupal'
   default_region: first
   icon_map:
     - [first, second, third]
