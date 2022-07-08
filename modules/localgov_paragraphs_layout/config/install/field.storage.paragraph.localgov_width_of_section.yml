@@ -4,8 +4,8 @@ dependencies:
   module:
     - options
     - paragraphs
-id: paragraph.lgms_width_of_section
-field_name: lgms_width_of_section
+id: paragraph.localgov_width_of_section
+field_name: localgov_width_of_section
 entity_type: paragraph
 type: list_string
 settings:

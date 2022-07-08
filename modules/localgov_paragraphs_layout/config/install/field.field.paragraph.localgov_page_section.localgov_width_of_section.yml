@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.lgms_width_of_section
+    - field.storage.paragraph.localgov_width_of_section
     - paragraphs.paragraphs_type.localgov_page_section
   module:
     - options
-id: paragraph.localgov_page_section.lgms_width_of_section
-field_name: lgms_width_of_section
+id: paragraph.localgov_page_section.localgov_width_of_section
+field_name: localgov_width_of_section
 entity_type: paragraph
 bundle: localgov_page_section
 label: 'Width of Section'
