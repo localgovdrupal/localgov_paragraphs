@@ -1,11 +1,8 @@
-uuid: 836aa8fe-643b-4928-ac87-91a17f4b98d6
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-_core:
-  default_config_hash: E78867vD-EkpWWyCs6ENIK-xUUjR3NHTSghXWDjD8IQ
 id: paragraph.localgov_featured_subsite_text
 field_name: localgov_featured_subsite_text
 entity_type: paragraph
