@@ -1,11 +1,8 @@
-uuid: 8088f34c-eafa-45d0-816f-f4c3d263a82d
 langcode: en
 status: true
 dependencies:
   content:
     - 'file:file:e388ebc7-5349-45dc-901f-a994b8f61575'
-_core:
-  default_config_hash: kqJHJKBV07VV08VCtwhCbhMm6BiqzqxpU6jDm6oQeSw
 id: localgov_quote
 label: Quote
 icon_uuid: e388ebc7-5349-45dc-901f-a994b8f61575

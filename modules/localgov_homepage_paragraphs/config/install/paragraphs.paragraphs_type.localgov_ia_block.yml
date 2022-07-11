@@ -1,11 +1,8 @@
-uuid: 4eaf159c-0d7d-440e-ad39-187d6aaee98c
 langcode: en
 status: true
 dependencies:
   content:
     - 'file:file:080afc76-23df-4bba-8bff-59478e40e1a3'
-_core:
-  default_config_hash: CdpIjdex7QuKgv1YAwUTIN86piryzDZo-r0luAdBEbg
 id: localgov_ia_block
 label: 'IA block'
 icon_uuid: 080afc76-23df-4bba-8bff-59478e40e1a3

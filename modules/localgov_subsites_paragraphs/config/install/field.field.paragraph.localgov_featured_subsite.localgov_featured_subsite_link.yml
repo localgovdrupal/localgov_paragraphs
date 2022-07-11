@@ -1,4 +1,3 @@
-uuid: 1f881d28-71e1-4607-8481-fb3cda2a5514
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.localgov_featured_subsite
   module:
     - link
-_core:
-  default_config_hash: rWOmQVvrqfqGSAemvmcgEbDOCk9a8_EWcqagUa30wu4
 id: paragraph.localgov_featured_subsite.localgov_featured_subsite_link
 field_name: localgov_featured_subsite_link
 entity_type: paragraph

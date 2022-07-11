@@ -1,11 +1,8 @@
-uuid: 8dc656f0-6fef-424a-bf98-31f14ba356fe
 langcode: en
 status: true
 dependencies:
   content:
     - 'file:file:f7d22fff-d730-4639-90fc-9093186e3da5'
-_core:
-  default_config_hash: 3iFwwPfcPLCMffistfhIPQ1Axz0unwMT1SGsQpPuRUs
 id: localgov_image
 label: Image
 icon_uuid: f7d22fff-d730-4639-90fc-9093186e3da5
