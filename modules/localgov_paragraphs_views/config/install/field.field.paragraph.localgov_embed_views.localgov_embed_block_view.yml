@@ -23,10 +23,7 @@ settings:
     auto_create: false
   plugin_types:
     block: block
-  preselect_views:
-    lgms_embed_views: lgms_embed_views
-    lgms_embed_view_news: lgms_embed_view_news
-    lgms_embed_view_events: lgms_embed_view_events
+  preselect_views: {  }
   enabled_settings:
     limit: limit
 field_type: viewsreference
