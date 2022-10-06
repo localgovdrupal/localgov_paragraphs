@@ -5,12 +5,6 @@
  * LocalGovDrupal Paragraphs Views module file.
  */
 
-use Drupal\Core\Link;
-use Drupal\Core\Url;
-use Drupal\file\Entity\File;
-use Drupal\image\Entity\ImageStyle;
-
-
 /**
  * Implements hook_preprocess_HOOK().
  */
