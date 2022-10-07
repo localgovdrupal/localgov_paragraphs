@@ -10,8 +10,8 @@ id: paragraph.localgov_page_section.localgov_bg_colour_of_section
 field_name: localgov_bg_colour_of_section
 entity_type: paragraph
 bundle: localgov_page_section
-label: 'Background Colour of Section'
-description: ''
+label: 'Background Colour'
+description: 'Sets the background colour for this layout.'
 required: false
 translatable: false
 default_value: {  }

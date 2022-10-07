@@ -18,7 +18,13 @@ settings:
       label: Medium
     -
       value: large
-      label: large
+      label: Large
+    -
+      value: larger
+      label: Larger
+    -
+      value: largest
+      label: Largest
   allowed_values_function: ''
 module: options
 locked: false

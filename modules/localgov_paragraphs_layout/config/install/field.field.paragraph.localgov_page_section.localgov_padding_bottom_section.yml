@@ -10,8 +10,8 @@ id: paragraph.localgov_page_section.localgov_padding_bottom_section
 field_name: localgov_padding_bottom_section
 entity_type: paragraph
 bundle: localgov_page_section
-label: 'Add padding to bottom of section'
-description: ''
+label: 'Padding Bottom'
+description: 'Adds a padding buffer to the bottom of this page section.'
 required: false
 translatable: false
 default_value: {  }

@@ -10,8 +10,8 @@ id: paragraph.localgov_page_section.localgov_padding_top_section
 field_name: localgov_padding_top_section
 entity_type: paragraph
 bundle: localgov_page_section
-label: 'Add padding to top of section'
-description: ''
+label: 'Padding Top'
+description: 'Adds a padding buffer to the top of this page section.'
 required: false
 translatable: false
 default_value: {  }
