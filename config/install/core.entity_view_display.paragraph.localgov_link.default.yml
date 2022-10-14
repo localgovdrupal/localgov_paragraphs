@@ -22,6 +22,7 @@ content:
     region: content
   localgov_title:
     type: string
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -29,6 +30,7 @@ content:
     region: content
   localgov_url:
     type: string
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
