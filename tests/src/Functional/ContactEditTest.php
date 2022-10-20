@@ -30,7 +30,8 @@ class ContactEditTest extends BrowserTestBase {
 
   /**
    * Skip schema check for third_party_settings config from media_library_edit.
-   * See https://www.drupal.org/project/media_library_edit/issues/3315757
+   *
+   * See https://www.drupal.org/project/media_library_edit/issues/3315757.
    *
    * @var string[]
    */
