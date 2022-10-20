@@ -25,6 +25,17 @@ class HomepageAddTest extends BrowserTestBase {
   protected static $modules = ['localgov_homepage_paragraphs_dummy_content_type'];
 
   /**
+   * Skip schema check for third_party_settings config from media_library_edit.
+   * See https://www.drupal.org/project/media_library_edit/issues/3315757
+   *
+   * @var string[]
+   */
+  protected static $configSchemaCheckerExclusions = [
+    'core.entity_form_display.paragraph.localgov_featured_campaign.default',
+    'core.entity_form_display.paragraph.localgov_image.default',
+  ];
+
+  /**
    * Test homepage creation.
    */
   public function testCreateHomepage() {
