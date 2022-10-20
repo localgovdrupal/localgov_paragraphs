@@ -47,6 +47,19 @@ class CheckConfigTest extends EntityKernelTestBase {
   ];
 
   /**
+   * Skip schema check for third_party_settings config from media_library_edit.
+   *
+   * See https://www.drupal.org/project/media_library_edit/issues/3315757.
+   *
+   * @var string[]
+   */
+  protected static $configSchemaCheckerExclusions = [
+    'core.entity_form_display.paragraph.localgov_featured_campaign.default',
+    'core.entity_form_display.paragraph.localgov_image.default',
+    'core.entity_form_display.paragraph.localgov_newsroom_teaser.default',
+  ];
+
+  /**
    * Tests that the module's config installs properly.
    */
   public function testConfig() {

@@ -34,6 +34,8 @@ class HomepageAddTest extends BrowserTestBase {
   protected static $configSchemaCheckerExclusions = [
     'core.entity_form_display.paragraph.localgov_featured_campaign.default',
     'core.entity_form_display.paragraph.localgov_image.default',
+    'core.entity_form_display.paragraph.localgov_newsroom_teaser.default',
+
   ];
 
   /**
