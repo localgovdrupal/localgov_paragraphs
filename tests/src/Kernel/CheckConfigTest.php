@@ -82,6 +82,18 @@ class CheckConfigTest extends EntityKernelTestBase {
     'core.entity_form_display.paragraph.localgov_image.default',
     'core.entity_form_display.paragraph.localgov_link.default',
     'core.entity_form_display.paragraph.localgov_text.default',
+    'core.entity_form_display.paragraph.localgov_featured_campaign.default',
+    'core.entity_form_display.paragraph.localgov_ia_block.default',
+    'core.entity_form_display.paragraph.localgov_labelled_icon.default',
+    'core.entity_form_display.paragraph.localgov_newsroom_teaser.default',
+    'core.entity_form_display.paragraph.localgov_subscribe_panel.default',
+    'core.entity_view_display.paragraph.localgov_featured_campaign.default',
+    'core.entity_view_display.paragraph.localgov_ia_block.default',
+    'core.entity_view_display.paragraph.localgov_labelled_icon.default',
+    'core.entity_view_display.paragraph.localgov_newsroom_teaser.default',
+    'core.entity_view_display.paragraph.localgov_newsroom_teaser.featured_large',
+    'core.entity_view_display.paragraph.localgov_newsroom_teaser.featured',
+    'core.entity_view_display.paragraph.localgov_subscribe_panel.default',
   ];
 
   /**
