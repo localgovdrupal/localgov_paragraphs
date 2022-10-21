@@ -61,6 +61,7 @@ class CheckConfigTest extends EntityKernelTestBase {
     'core.entity_form_display.paragraph.localgov_banner_secondary.default',
     'core.entity_form_display.paragraph.localgov_featured_subsite.default',
     'core.entity_form_display.paragraph.localgov_box_link.default',
+    'core.entity_form_display.paragraph.localgov_key_contact_item.default',
   ];
 
   /**
