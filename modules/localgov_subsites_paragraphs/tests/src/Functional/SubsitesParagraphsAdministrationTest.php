@@ -23,6 +23,7 @@ class SubsitesParagraphsAdministrationTest extends ParagraphsTestBase {
     'core.entity_form_display.paragraph.localgov_banner_primary.default',
     'core.entity_form_display.paragraph.localgov_banner_secondary.default',
     'core.entity_form_display.paragraph.localgov_box_link.default',
+    'core.entity_form_display.paragraph.localgov_featured_subsite.default',
   ];
 
   /**
