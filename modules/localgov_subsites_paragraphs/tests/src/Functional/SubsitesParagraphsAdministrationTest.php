@@ -41,6 +41,10 @@ class SubsitesParagraphsAdministrationTest extends ParagraphsTestBase {
     'core.entity_form_display.paragraph.localgov_tab_panel.default.yml',
     'core.entity_form_display.paragraph.localgov_tabs.default.yml',
     'core.entity_form_display.paragraph.localgov_video.default.yml',
+    'core.entity_form_display.paragraph.localgov_contact.default.yml',
+    'core.entity_form_display.paragraph.localgov_image.default.yml',
+    'core.entity_form_display.paragraph.localgov_link.default.yml',
+    'core.entity_form_display.paragraph.localgov_text.default.yml',
   ];
 
   /**
