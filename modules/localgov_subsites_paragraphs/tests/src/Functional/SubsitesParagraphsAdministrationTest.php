@@ -27,6 +27,7 @@ class SubsitesParagraphsAdministrationTest extends ParagraphsTestBase {
     'core.entity_form_display.paragraph.localgov_key_contact_item.default',
     'core.entity_form_display.paragraph.localgov_media_with_text.default',
     'core.entity_form_display.paragraph.localgov_video.default',
+    'core.entity_form_display.paragraph.localgov_featured_teaser.default',
   ];
 
   /**
