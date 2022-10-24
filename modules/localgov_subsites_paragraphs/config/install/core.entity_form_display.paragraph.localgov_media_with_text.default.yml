@@ -45,7 +45,6 @@ content:
     third_party_settings:
       media_library_edit:
         show_edit: '1'
-    region: content
   localgov_media_position:
     type: options_select
     weight: 2
