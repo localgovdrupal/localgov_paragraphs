@@ -15,6 +15,7 @@ dependencies:
   module:
     - link
     - media_library
+    - media_library_edit
     - text
 id: paragraph.localgov_media_with_text.default
 targetEntityType: paragraph
@@ -41,7 +42,10 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
+    region: content
   localgov_media_position:
     type: options_select
     weight: 2
