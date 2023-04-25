@@ -2,7 +2,7 @@
 
 /**
  * @file
- *   Post update hooks for LocalGov Paragraphs Layout.
+ * Post update hooks for LocalGov Paragraphs Layout.
  */
 
 /**
