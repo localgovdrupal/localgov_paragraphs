@@ -64,7 +64,7 @@ class SubsitesParagraphsAdministrationTest extends ParagraphsTestBase {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'localgov_subsites_paragraphs',
   ];
 
