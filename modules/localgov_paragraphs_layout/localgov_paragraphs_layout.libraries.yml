@@ -17,4 +17,3 @@ four_col_25_25_25_25:
   css:
     theme:
       layouts/fourcol/four-col.css: {}
-      
