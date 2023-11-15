@@ -13,3 +13,7 @@ threecol_33_34_33:
   css:
     theme:
       layouts/threecol_33_34_33/threecol_33_34_33.css: {}
+four_col_25_25_25_25:
+  css:
+    theme:
+      layouts/fourcol/four-col.css: {}
