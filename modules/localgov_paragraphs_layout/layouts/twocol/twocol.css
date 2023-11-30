@@ -10,7 +10,7 @@
   gap: var(--lgd-page-section-gap);
 }
 
-.layout--twocol > .layout {
+.layout--twocol > .layout__region {
   /* To equalise the heights in each row */
   display: grid;
 }

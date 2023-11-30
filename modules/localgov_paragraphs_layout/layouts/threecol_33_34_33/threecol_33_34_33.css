@@ -10,7 +10,7 @@
   gap: var(--lgd-page-section-gap);
 }
 
-.layout--threecol-33-34-33 > .layout {
+.layout--threecol-33-34-33 > .layout__region {
   /* To equalise the heights in each row */
   display: grid;
 }
