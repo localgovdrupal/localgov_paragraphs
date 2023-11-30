@@ -4,17 +4,26 @@
  */
 
 .layout--twocol {
-  display: flex;
-  flex-wrap: wrap;
+  --lgd-page-section-gap: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--lgd-page-section-gap);
 }
 
 .layout--twocol > .layout__region {
-  flex: 0 1 100%;
+  /* To equalise the heights in each row */
+  display: grid;
 }
 
 @media screen and (min-width: 40em) {
-  .layout--twocol > .layout__region--first,
-  .layout--twocol > .layout__region--second {
-    flex: 0 1 50%;
+  .layout--twocol {
+    /*
+      If you need to add some gap between items here, you can set the
+      --lgd-page-section-gap variable to whatever gap size you need.
+      e.g.
+        --lgd-page-section-gap: 1rem;
+        --lgd-page-section-gap: var(--spacing);
+    */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
