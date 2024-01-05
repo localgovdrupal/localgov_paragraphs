@@ -6,8 +6,8 @@
  */
 
 use Drupal\Core\Link;
-use Drupal\Core\Url;
 use Drupal\Core\StringTranslation\ByteSizeMarkup;
+use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\image\ImageStyleInterface;
