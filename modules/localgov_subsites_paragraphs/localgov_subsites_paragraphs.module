@@ -7,6 +7,7 @@
 
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\Core\StringTranslation\ByteSizeMarkup;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\image\ImageStyleInterface;
@@ -208,7 +209,7 @@ function localgov_subsites_paragraphs_preprocess_paragraph(&$variables) {
       if ($file_entity) {
         $variables['documents'][$key] = [
           'name' => $variables['content']['localgov_documents'][$key],
-          'size' => format_size($file_entity->getSize()),
+          'size' => ByteSizeMarkup::create($file_entity->getSize()),
         ];
       }
     }
