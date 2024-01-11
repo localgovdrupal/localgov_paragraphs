@@ -208,6 +208,8 @@ function localgov_subsites_paragraphs_preprocess_paragraph(&$variables) {
       if ($file_entity) {
         $variables['documents'][$key] = [
           'name' => $variables['content']['localgov_documents'][$key],
+          // FIXME: Replace with ByteSizeMarkup when Drupal 10.1 is end of life.
+          // @phpstan-ignore-next-line.
           'size' => format_size($file_entity->getSize()),
         ];
       }
