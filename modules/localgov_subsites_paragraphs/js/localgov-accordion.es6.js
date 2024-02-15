@@ -55,6 +55,7 @@
 
           // Add show/hide button to each accordion title.
           button.appendChild(text);
+          button.innerHTML += "<span class='accordion-icon' aria-hidden='true'></span>";
           button.setAttribute('aria-expanded', 'false');
           button.setAttribute('aria-controls', id);
 
