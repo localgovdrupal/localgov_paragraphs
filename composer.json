@@ -13,7 +13,7 @@
         "drupal/entity_usage": "^2.0@beta",
         "drupal/field_formatter_class": "^1.4",
         "drupal/field_group": "^3.0",
-        "drupal/fontawesome": "dev-3465765-drupal-11-compatibility",
+        "drupal/fontawesome": "^3.0",
         "drupal/geolocation": "^3.1",
         "drupal/layout_paragraphs": "^2.0",
         "drupal/office_hours": "^1.8",
