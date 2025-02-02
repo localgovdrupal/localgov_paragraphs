@@ -9,7 +9,7 @@
 }
 
 .accordion-pane__title button[hidden] {
-	display: none;
+  display: none;
 }
 
 .accordion--initialised .accordion-pane__content {
