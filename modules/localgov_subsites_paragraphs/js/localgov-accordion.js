@@ -12,7 +12,7 @@
      *   DOM object.
      */
     attach(context) {
-      const accordions = context.querySelectorAll(".accordion");
+      const accordions = context.querySelectorAll('.accordion');
 
       for (let i = 0; i < accordions.length; i++) {
         this.init(accordions[i], i);
@@ -37,7 +37,7 @@
        *   The pane to expand.
        */
       function expandPane(button, pane) {
-        button.setAttribute("aria-expanded", "true");
+        button.setAttribute('aria-expanded', 'true');
         pane.classList.add(openClass);
       }
 
@@ -50,7 +50,7 @@
        *   The pane to collapse.
        */
       function collapsePane(button, pane) {
-        button.setAttribute("aria-expanded", "false");
+        button.setAttribute('aria-expanded', 'false');
         pane.classList.remove(openClass);
       }
 
@@ -60,19 +60,19 @@
        * Used both as an event listener callback, and called directly.
        */
       function toggleAll() {
-        const labelEl = showHideButton.querySelector(".accordion-text");
+        const labelEl = showHideButton.querySelector('.accordion-text');
         const nextState =
-          showHideButton.getAttribute("aria-expanded") !== "true";
+          showHideButton.getAttribute('aria-expanded') !== 'true';
 
         showHideButtonLabel.textContent =
-          showHideButton.dataset[nextState ? "hideAll" : "showAll"];
-        showHideButton.setAttribute("aria-expanded", nextState);
+          showHideButton.dataset[nextState ? 'hideAll' : 'showAll'];
+        showHideButton.setAttribute('aria-expanded', nextState);
 
         for (let i = 0; i < numberOfPanes; i++) {
           const currentButton =
-            accordionPanes[i].querySelector("[aria-controls]");
+            accordionPanes[i].querySelector('[aria-controls]');
           const currentPane = accordionPanes[i].querySelector(
-            ".accordion-pane__content",
+            '.accordion-pane__content',
           );
 
           if (nextState) {
@@ -100,18 +100,18 @@
         return expandedPanes ? (expandedPanes === numberOfPanes ? 1 : -1) : 0;
       }
 
-      const accordionPanes = accordion.querySelectorAll(".accordion-pane");
+      const accordionPanes = accordion.querySelectorAll('.accordion-pane');
       const numberOfPanes = accordionPanes.length;
-      const initClass = "accordion--initialised";
-      const openClass = "accordion-pane__content--open";
+      const initClass = 'accordion--initialised';
+      const openClass = 'accordion-pane__content--open';
       const breakpoint = accordion.dataset.accordionTabsSwitch || null;
       const mq = window.matchMedia(`(max-width: '${breakpoint}')`);
       const displayShowHide = accordion.hasAttribute(
-        "data-accordion-display-show-hide",
+        'data-accordion-display-show-hide',
       );
       const allowMultiple =
         displayShowHide ||
-        accordion.hasAttribute("data-accordion-allow-multiple");
+        accordion.hasAttribute('data-accordion-allow-multiple');
       let showHideButton;
       let showHideButtonLabel;
 
@@ -123,14 +123,14 @@
 
         for (let i = 0; i < numberOfPanes; i++) {
           const pane = accordionPanes[i];
-          const content = pane.querySelectorAll(".accordion-pane__content");
-          const title = pane.querySelectorAll(".accordion-pane__title");
-          const button = title[0].querySelector("button");
-          const heading = title[0].querySelector(".accordion-pane__heading");
+          const content = pane.querySelectorAll('.accordion-pane__content');
+          const title = pane.querySelectorAll('.accordion-pane__title');
+          const button = title[0].querySelector('button');
+          const heading = title[0].querySelector('.accordion-pane__heading');
           const id = `accordion-content-${index}-${i}`;
 
           // Add id attribute to all pane content elements.
-          content[0].setAttribute("id", id);
+          content[0].setAttribute('id', id);
 
           // Hide default Heading text
           if (heading) {
@@ -139,20 +139,20 @@
 
           if (button) {
             // Add aria-controls id to button and un-hide
-            button.setAttribute("aria-controls", id);
+            button.setAttribute('aria-controls', id);
             button.hidden = false;
 
             // Add click event listener to the show/hide button.
-            button.addEventListener("click", (e) => {
-              const targetPaneId = e.target.getAttribute("aria-controls");
+            button.addEventListener('click', (e) => {
+              const targetPaneId = e.target.getAttribute('aria-controls');
               const targetPane = accordion.querySelectorAll(`#${targetPaneId}`);
               const openPane = accordion.querySelectorAll(`.${openClass}`);
 
               // Check the current state of the button and the content it controls.
-              if (e.target.getAttribute("aria-expanded") === "false") {
+              if (e.target.getAttribute('aria-expanded') === 'false') {
                 // Close currently open pane.
                 if (openPane.length && !allowMultiple) {
-                  const openPaneId = openPane[0].getAttribute("id");
+                  const openPaneId = openPane[0].getAttribute('id');
                   const openPaneButton = accordion.querySelectorAll(
                     `[aria-controls="${openPaneId}"]`,
                   );
@@ -170,7 +170,7 @@
               if (showHideButton) {
                 const accordionState = getAccordionState();
                 const toggleState =
-                  showHideButton.getAttribute("aria-expanded") === "true";
+                  showHideButton.getAttribute('aria-expanded') === 'true';
 
                 if (
                   (accordionState === 1 && !toggleState) ||
@@ -184,11 +184,11 @@
 
           if (button) {
             if (displayShowHide) {
-              showHideButton = accordion.querySelector(".accordion-toggle-all");
+              showHideButton = accordion.querySelector('.accordion-toggle-all');
               showHideButton.hidden = false;
-              showHideButton.addEventListener("click", toggleAll);
+              showHideButton.addEventListener('click', toggleAll);
               showHideButtonLabel =
-                showHideButton.querySelector(".accordion-text");
+                showHideButton.querySelector('.accordion-text');
             }
 
             // Add init class.
@@ -201,9 +201,9 @@
         for (let i = 0; i < numberOfPanes; i++) {
           // Remove id attributes from buttons in accordion pane titles.
           const button = accordion
-            .querySelectorAll(".accordion-pane__title")
-            [i].querySelector("button")
-            .removeAttribute("id");
+            .querySelectorAll('.accordion-pane__title')
+            [i].querySelector('button')
+            .removeAttribute('id');
 
           // Hide buttons in accordion pane titles.
           if (button) {
@@ -212,8 +212,8 @@
 
           // Un-hide default heading text
           const heading = accordion
-            .querySelectorAll(".accordion-pane__title")
-            [i].querySelector(".accordion-pane__heading");
+            .querySelectorAll('.accordion-pane__title')
+            [i].querySelector('.accordion-pane__heading');
 
           if (heading) {
             heading.hidden = false;
@@ -221,24 +221,24 @@
 
           // Remove id attributes from pane content elements.
           accordionPanes[i]
-            .querySelectorAll(".accordion-pane__content")[0]
-            .removeAttribute("id");
+            .querySelectorAll('.accordion-pane__content')[0]
+            .removeAttribute('id');
 
           // Remove open class from accordion pane's content elements.
           if (
             accordionPanes[i]
-              .querySelectorAll(".accordion-pane__content")[0]
+              .querySelectorAll('.accordion-pane__content')[0]
               .classList.contains(openClass)
           ) {
             accordionPanes[i]
-              .querySelectorAll(".accordion-pane__content")[0]
+              .querySelectorAll('.accordion-pane__content')[0]
               .classList.remove(openClass);
           }
         }
 
         if (displayShowHide) {
           showHideButton.hidden = true;
-          showHideButton.removeEventListener("click", toggleAll);
+          showHideButton.removeEventListener('click', toggleAll);
         }
 
         // Remove accordion init class.
@@ -256,7 +256,7 @@
       // Trigger create/destroy functions at different screen widths
       // based on the value of data-accordion-tabs-switch attribute.
       if (window.matchMedia) {
-        mq.addEventListener("change", () => {
+        mq.addEventListener('change', () => {
           breakpointCheck();
         });
         breakpointCheck();

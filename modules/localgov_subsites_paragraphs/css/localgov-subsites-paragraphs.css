@@ -8,20 +8,14 @@
 .paragraph--type--page-section .layout--twocol .layout__region--second {
   padding-left: 5px;
 }
-.paragraph--type--page-section
-  .layout--threecol-33-34-33
-  .layout__region--first {
+.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--first {
   padding-right: 5px;
 }
-.paragraph--type--page-section
-  .layout--threecol-33-34-33
-  .layout__region--second {
+.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--second {
   padding-right: 5px;
   padding-left: 5px;
 }
-.paragraph--type--page-section
-  .layout--threecol-33-34-33
-  .layout__region--third {
+.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--third {
   padding-left: 5px;
 }
 

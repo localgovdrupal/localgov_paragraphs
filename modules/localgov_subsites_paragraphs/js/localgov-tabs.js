@@ -16,7 +16,7 @@
      *   DOM object.
      */
     attach: function attach(context) {
-      const tabs = context.querySelectorAll("[data-localgov-tabs]");
+      const tabs = context.querySelectorAll('[data-localgov-tabs]');
 
       for (let i = 0; i < tabs.length; i++) {
         this.init(tabs[i], i);
@@ -34,8 +34,8 @@
     init: function init(tabs, index) {
       const _this = this;
 
-      const tabPanels = tabs.querySelectorAll(".tab-panel");
-      const tabsInitialisedClass = "tabs--initialised";
+      const tabPanels = tabs.querySelectorAll('.tab-panel');
+      const tabsInitialisedClass = 'tabs--initialised';
       const breakpoint = tabs.dataset.accordionTabsSwitch || null;
       const tabId = index;
       const mq = window.matchMedia(`(max-width: ${breakpoint})`);
@@ -53,35 +53,35 @@
             }
 
             // Create tab list element and its nav wrapper.
-            const tabListNav = document.createElement("nav");
-            const tabList = document.createElement("ul");
-            tabListNav.classList.add("tabs__nav");
-            tabList.setAttribute("role", "tablist");
-            tabList.classList.add("tabs__controls");
+            const tabListNav = document.createElement('nav');
+            const tabList = document.createElement('ul');
+            tabListNav.classList.add('tabs__nav');
+            tabList.setAttribute('role', 'tablist');
+            tabList.classList.add('tabs__controls');
 
             // Loop through all tab panels to create tab list items & controls.
 
             const _loop = function _loop(i) {
-              const tabListItem = document.createElement("li");
-              const tab = document.createElement("button");
+              const tabListItem = document.createElement('li');
+              const tab = document.createElement('button');
               const tabPanelTitle =
-                tabPanels[i].querySelectorAll(".tab-panel__title")[0]
+                tabPanels[i].querySelectorAll('.tab-panel__title')[0]
                   .textContent;
               const tabText = document.createTextNode(tabPanelTitle);
 
               // Add attributes & text to tab list items and tabs.
-              tabListItem.setAttribute("role", "presentation");
-              tab.setAttribute("role", "tab");
-              tab.setAttribute("tabindex", -1);
-              tab.setAttribute("aria-selected", false);
-              tab.setAttribute("aria-controls", `tab-panel-${tabId}-${i}`);
-              tab.setAttribute("id", `tab-${tabId}-${i}`);
+              tabListItem.setAttribute('role', 'presentation');
+              tab.setAttribute('role', 'tab');
+              tab.setAttribute('tabindex', -1);
+              tab.setAttribute('aria-selected', false);
+              tab.setAttribute('aria-controls', `tab-panel-${tabId}-${i}`);
+              tab.setAttribute('id', `tab-${tabId}-${i}`);
               tab.appendChild(tabText);
 
-              tab.addEventListener("click", function (e) {
+              tab.addEventListener('click', function (e) {
                 e.preventDefault();
-                const isActive = e.currentTarget.getAttribute("aria-selected");
-                if (isActive === "false") {
+                const isActive = e.currentTarget.getAttribute('aria-selected');
+                if (isActive === 'false') {
                   Drupal.behaviors.localgovTabs.switchTab(
                     e.currentTarget,
                     tabs,
@@ -91,16 +91,16 @@
 
               // On keydown event listener (for navigating tab controls using
               // arrow keys).
-              tab.addEventListener("keydown", function (e) {
+              tab.addEventListener('keydown', function (e) {
                 let newActiveControl = void 0;
 
                 switch (e.key) {
-                  case "ArrowLeft":
+                  case 'ArrowLeft':
                     // Left arrow. If there's a previous element, switch to it.
                     if (i - 1 >= 0) {
                       newActiveControl = tabList
-                        .querySelectorAll("li")
-                        [i - 1].querySelectorAll("button");
+                        .querySelectorAll('li')
+                        [i - 1].querySelectorAll('button');
                       Drupal.behaviors.localgovTabs.switchTab(
                         newActiveControl[0],
                         tabs,
@@ -108,12 +108,12 @@
                       newActiveControl[0].focus();
                     }
                     break;
-                  case "ArrowRight":
+                  case 'ArrowRight':
                     // Right arrow. If there's a next element, switch to it.
                     if (i + 1 < tabPanelsNumber) {
                       newActiveControl = tabList
-                        .querySelectorAll("li")
-                        [i + 1].querySelectorAll("button");
+                        .querySelectorAll('li')
+                        [i + 1].querySelectorAll('button');
                       Drupal.behaviors.localgovTabs.switchTab(
                         newActiveControl[0],
                         tabs,
@@ -121,7 +121,7 @@
                       newActiveControl[0].focus();
                     }
                     break;
-                  case "ArrowDown":
+                  case 'ArrowDown':
                     // Arrow down. Move focus into the active panel.
                     tabPanels[i].focus();
                     break;
@@ -134,10 +134,10 @@
               tabList.appendChild(tabListItem);
 
               // Add attributes to tab panels.
-              tabPanels[i].setAttribute("role", "tabpanel");
-              tabPanels[i].setAttribute("tabindex", "-1");
-              tabPanels[i].setAttribute("aria-labelledby", `tab-${tabId}-${i}`);
-              tabPanels[i].setAttribute("id", `tab-panel-${tabId}-${i}`);
+              tabPanels[i].setAttribute('role', 'tabpanel');
+              tabPanels[i].setAttribute('tabindex', '-1');
+              tabPanels[i].setAttribute('aria-labelledby', `tab-${tabId}-${i}`);
+              tabPanels[i].setAttribute('id', `tab-panel-${tabId}-${i}`);
             };
 
             for (let i = 0; i < tabPanels.length; i++) {
@@ -150,7 +150,7 @@
 
             // Show the first panel.
             const activeControl = tabList.querySelectorAll(
-              "li:first-child button",
+              'li:first-child button',
             );
             _this.switchTab(activeControl[0], tabs);
 
@@ -159,8 +159,8 @@
           })();
 
           if (
-            (typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) ===
-            "object"
+            (typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) ===
+            'object'
           )
             return _ret.v;
         }
@@ -169,20 +169,20 @@
       const destroy = function destroy() {
         if (tabs.classList.contains(tabsInitialisedClass)) {
           // Remove tabs.
-          const tabsElements = tabs.querySelectorAll(".tabs__nav")[0];
+          const tabsElements = tabs.querySelectorAll('.tabs__nav')[0];
           tabsElements.parentNode.removeChild(tabsElements);
 
           // Remove attributes from tab panels.
           for (let i = 0; i < tabPanels.length; i++) {
-            tabPanels[i].removeAttribute("role");
-            tabPanels[i].removeAttribute("tabindex");
-            tabPanels[i].removeAttribute("aria-labelledby");
-            tabPanels[i].removeAttribute("id");
+            tabPanels[i].removeAttribute('role');
+            tabPanels[i].removeAttribute('tabindex');
+            tabPanels[i].removeAttribute('aria-labelledby');
+            tabPanels[i].removeAttribute('id');
 
-            if (tabs.querySelectorAll(".tab-panel--active").length > 0) {
+            if (tabs.querySelectorAll('.tab-panel--active').length > 0) {
               tabs
-                .querySelectorAll(".tab-panel--active")[0]
-                .classList.remove("tab-panel--active");
+                .querySelectorAll('.tab-panel--active')[0]
+                .classList.remove('tab-panel--active');
             }
           }
 
@@ -202,7 +202,7 @@
       // Trigger create/destroy functions at different screen widths
       // based on the value of data-accordion-tabs-switch attribute.
       if (window.matchMedia) {
-        mq.addEventListener("change", () => {
+        mq.addEventListener('change', () => {
           breakpointCheck();
         });
         breakpointCheck();
@@ -218,9 +218,9 @@
      *   Tabs element.
      */
     switchTab: function switchTab(newActiveTab, tabs) {
-      const newActivePanelId = newActiveTab.getAttribute("aria-controls");
+      const newActivePanelId = newActiveTab.getAttribute('aria-controls');
       const newActivePanel = tabs.querySelectorAll(`#${newActivePanelId}`);
-      const activePanelClass = "tab-panel--active";
+      const activePanelClass = 'tab-panel--active';
       const oldActiveTab =
         tabs.querySelectorAll('.tabs__controls [aria-selected="true"]').length >
         0
@@ -228,12 +228,12 @@
           : null;
       // Deactivate current active control.
       if (oldActiveTab) {
-        oldActiveTab.setAttribute("aria-selected", false);
-        oldActiveTab.setAttribute("tabindex", "-1");
+        oldActiveTab.setAttribute('aria-selected', false);
+        oldActiveTab.setAttribute('tabindex', '-1');
       }
       // Set new active control.
-      newActiveTab.setAttribute("aria-selected", true);
-      newActiveTab.removeAttribute("tabindex");
+      newActiveTab.setAttribute('aria-selected', true);
+      newActiveTab.removeAttribute('tabindex');
 
       // Deactivate current active panel.
       if (tabs.querySelectorAll(`.${activePanelClass}`).length > 0) {
