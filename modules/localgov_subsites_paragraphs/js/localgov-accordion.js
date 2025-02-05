@@ -131,7 +131,7 @@
           if (openPane.length && !allowMultiple) {
             const openPaneId = openPane[0].getAttribute('id');
             const openPaneButton = accordion.querySelectorAll(
-     `[aria-controls="${openPaneId}"]`,
+              `[aria-controls="${openPaneId}"]`,
             );
 
             collapsePane(openPaneButton[0], openPane[0]);
