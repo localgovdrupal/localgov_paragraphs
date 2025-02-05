@@ -4,6 +4,7 @@
  */
 
 ((Drupal) => {
+
   Drupal.behaviors.localgovAccordion = {
     /**
      * Attach accordion behaviour.
@@ -121,6 +122,44 @@
         return -1;
       }
 
+      const showHideButtonClickHandler = (e) => {
+        const targetPaneId = e.target.getAttribute('aria-controls');
+        const targetPane = accordion.querySelectorAll(`#${targetPaneId}`);
+        const openPane = accordion.querySelectorAll(`.${openClass}`);
+
+        // Check the current state of the button and the content it controls.
+        if (e.target.getAttribute('aria-expanded') === 'false') {
+          // Close currently open pane.
+          if (openPane.length && !allowMultiple) {
+            const openPaneId = openPane[0].getAttribute('id');
+            const openPaneButton = accordion.querySelectorAll(
+                `[aria-controls="${openPaneId}"]`,
+            );
+
+            collapsePane(openPaneButton[0], openPane[0]);
+          }
+
+          // Show new pane.
+          expandPane(e.target, targetPane[0]);
+        } else {
+          // If target pane is currently open, close it.
+          collapsePane(e.target, targetPane[0]);
+        }
+
+        if (showHideButton) {
+          const accordionState = getAccordionState();
+          const toggleState =
+              showHideButton.getAttribute('aria-expanded') === 'true';
+
+          if (
+              (accordionState === 1 && !toggleState) ||
+              (!accordionState && toggleState)
+          ) {
+            toggleAll();
+          }
+        }
+      };
+
       const create = function create() {
         // Only initialise accordion if it hasn't already been done.
         if (accordion.classList.contains(initClass)) {
@@ -149,43 +188,7 @@
             button.hidden = false;
 
             // Add click event listener to the show/hide button.
-            button.addEventListener('click', (e) => {
-              const targetPaneId = e.target.getAttribute('aria-controls');
-              const targetPane = accordion.querySelectorAll(`#${targetPaneId}`);
-              const openPane = accordion.querySelectorAll(`.${openClass}`);
-
-              // Check the current state of the button and the content it controls.
-              if (e.target.getAttribute('aria-expanded') === 'false') {
-                // Close currently open pane.
-                if (openPane.length && !allowMultiple) {
-                  const openPaneId = openPane[0].getAttribute('id');
-                  const openPaneButton = accordion.querySelectorAll(
-                    `[aria-controls="${openPaneId}"]`,
-                  );
-
-                  collapsePane(openPaneButton[0], openPane[0]);
-                }
-
-                // Show new pane.
-                expandPane(e.target, targetPane[0]);
-              } else {
-                // If target pane is currently open, close it.
-                collapsePane(e.target, targetPane[0]);
-              }
-
-              if (showHideButton) {
-                const accordionState = getAccordionState();
-                const toggleState =
-                  showHideButton.getAttribute('aria-expanded') === 'true';
-
-                if (
-                  (accordionState === 1 && !toggleState) ||
-                  (!accordionState && toggleState)
-                ) {
-                  toggleAll();
-                }
-              }
-            });
+            button.addEventListener('click', showHideButtonClickHandler);
           }
 
           if (button) {
