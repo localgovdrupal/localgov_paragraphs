@@ -4,7 +4,6 @@
  */
 
 ((Drupal) => {
-
   Drupal.behaviors.localgovAccordion = {
     /**
      * Attach accordion behaviour.
@@ -76,7 +75,6 @@
        * Used both as an event listener callback, and called directly.
        */
       function toggleAll() {
-        const labelEl = showHideButton.querySelector('.accordion-text');
         const nextState =
           showHideButton.getAttribute('aria-expanded') !== 'true';
 
@@ -133,7 +131,7 @@
           if (openPane.length && !allowMultiple) {
             const openPaneId = openPane[0].getAttribute('id');
             const openPaneButton = accordion.querySelectorAll(
-                `[aria-controls="${openPaneId}"]`,
+     `[aria-controls="${openPaneId}"]`,
             );
 
             collapsePane(openPaneButton[0], openPane[0]);
@@ -149,11 +147,11 @@
         if (showHideButton) {
           const accordionState = getAccordionState();
           const toggleState =
-              showHideButton.getAttribute('aria-expanded') === 'true';
+            showHideButton.getAttribute('aria-expanded') === 'true';
 
           if (
-              (accordionState === 1 && !toggleState) ||
-              (!accordionState && toggleState)
+            (accordionState === 1 && !toggleState) ||
+            (!accordionState && toggleState)
           ) {
             toggleAll();
           }
