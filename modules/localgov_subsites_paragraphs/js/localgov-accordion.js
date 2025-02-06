@@ -121,7 +121,7 @@
         return -1;
       }
 
-      function doSomething(e) {
+      function showHideButtonClickHandler(e) {
         const targetPaneId = e.target.getAttribute('aria-controls');
         const targetPane = accordion.querySelectorAll(`#${targetPaneId}`);
         const openPane = accordion.querySelectorAll(`.${openClass}`);
@@ -187,7 +187,7 @@
             button.hidden = false;
 
             // Add click event listener to the show/hide button.
-            button.addEventListener('click', (e) => doSomething(e));
+            button.addEventListener('click', showHideButtonClickHandler);
           }
 
           if (button) {
