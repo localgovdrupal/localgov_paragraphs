@@ -48,21 +48,23 @@
     'accordion-pane'
   ]
 %}
+
+{% set accordion = paragraph.getParentEntity() %}
+{% set group_accordion = accordion.localgov_allow_multiple_open.value == 1 and accordion.localgov_display_show_hide_all.value != 1 %}
+
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="accordion-pane__title">
-        <{{ heading_level }}>
-          <span class="accordion-pane__heading">{{ heading_text }}</span>
-          <button aria-expanded="false" hidden>
-            {{ heading_text }}
-            <span class='accordion-icon' aria-hidden='true'></span>
-          </button>
-        </{{ heading_level }}>
-      </div>
-      <div class="accordion-pane__content">
-        {{ content.localgov_body_text }}
-      </div>
+      <details {% if group_accordion %}name="accordion_{{ accordion.id() }}"{% endif %}>
+        <summary class="accordion-pane__title">
+          <{{ heading_level }}>
+            <span class="accordion-pane__heading">{{ heading_text }}</span>
+          </{{ heading_level }}>
+        </summary>
+        <div class="accordion-pane__content">
+          {{ content.localgov_body_text }}
+        </div>
+      </details>
     {% endblock %}
   </div>
 {% endblock paragraph %}
