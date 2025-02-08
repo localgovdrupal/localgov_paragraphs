@@ -3,6 +3,17 @@
  * Basic styling for Accordion paragraph.
  */
 
-.accordion-toggle-all {
+ .accordion-toggle-all {
   margin-bottom: var(--vertical-rhythm-spacing);
+}
+
+/* Styling tweaks for layout builder only */
+.js-lpb-component .accordion-pane__title h2,
+.js-lpb-component .accordion-pane__title h3,
+.js-lpb-component .accordion-pane__title h4,
+.js-lpb-component .accordion-pane__title h5,
+.js-lpb-component .accordion-pane__title h6 {
+  display: inline;
+  margin-block-end: 0;
+  font-size: 1rem;
 }
