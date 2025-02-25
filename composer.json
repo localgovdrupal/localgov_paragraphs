@@ -18,7 +18,7 @@
         "drupal/layout_paragraphs": "^2.0",
         "drupal/office_hours": "^1.8",
         "drupal/paragraphs": "^1.13",
-        "drupal/tablefield": "^2.4 || ^3.0@beta",
+        "drupal/tablefield": "^3.0@beta",
         "drupal/viewsreference": "^2.0",
         "localgovdrupal/localgov_core": "^2.12",
         "localgovdrupal/localgov_topics": "^1.0"
@@ -34,7 +34,7 @@
                 "Fix schema #3138668": "https://www.drupal.org/files/issues/2021-01-27/geolocation-google-maps-schema-update-3138668-5.patch"
             },
             "drupal/tablefield": {
-                "Row order identifiers localgov_paragraphs:#212 https://www.drupal.org/project/tablefield/issues/3441319": "https://www.drupal.org/files/issues/2024-05-03/tablefield-3441319-1.patch"
+                "Row order identifiers localgov_paragraphs:#212 https://www.drupal.org/project/tablefield/issues/3441319": "https://www.drupal.org/files/issues/2025-02-14/3441319-19.patch"
             }
         }
     }
