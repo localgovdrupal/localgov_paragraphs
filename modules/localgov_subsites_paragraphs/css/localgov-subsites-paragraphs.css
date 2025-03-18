@@ -12,8 +12,8 @@
   padding-right: 5px;
 }
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--second {
-  padding-left: 5px;
   padding-right: 5px;
+  padding-left: 5px;
 }
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--third {
   padding-left: 5px;
@@ -21,10 +21,10 @@
 
 /* Call out box */
 .call-out-box {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   padding: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* Fact box */
@@ -34,4 +34,3 @@
 .fact-box p {
   text-align: center;
 }
-

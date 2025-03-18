@@ -3,7 +3,7 @@
  * Localgov Accordion behaviour.
  */
 
-(Drupal => {
+((Drupal) => {
   Drupal.behaviors.localgovAccordion = {
     /**
      * Attach accordion behaviour.
@@ -28,18 +28,20 @@
      *   Accordion element index.
      */
     init: function init(accordion, index) {
-      /**
-       * Expands one accordion pane, setting aria-expanded on button.
-       *
-       * @param {HTMLElement} button
-       *   The button associated with the pane to expand.
-       * @param {HTMLElement} pane
-       *   The pane to expand.
-       */
-      function expandPane(button, pane) {
-        button.setAttribute('aria-expanded', 'true');
-        pane.classList.add(openClass);
-      }
+      const accordionPanes = accordion.querySelectorAll('.accordion-pane');
+      const numberOfPanes = accordionPanes.length;
+      const initClass = 'accordion--initialised';
+      const openClass = 'accordion-pane__content--open';
+      const breakpoint = accordion.dataset.accordionTabsSwitch || null;
+      const mq = window.matchMedia(`(max-width: '${breakpoint}')`);
+      const displayShowHide = accordion.hasAttribute(
+        'data-accordion-display-show-hide',
+      );
+      const allowMultiple =
+        displayShowHide ||
+        accordion.hasAttribute('data-accordion-allow-multiple');
+      let showHideButton;
+      let showHideButtonLabel;
 
       /**
        * Collapses one accordion pane, setting aria-expanded on button.
@@ -55,24 +57,41 @@
       }
 
       /**
+       * Expands one accordion pane, setting aria-expanded on button.
+       *
+       * @param {HTMLElement} button
+       *   The button associated with the pane to expand.
+       * @param {HTMLElement} pane
+       *   The pane to expand.
+       */
+      function expandPane(button, pane) {
+        button.setAttribute('aria-expanded', 'true');
+        pane.classList.add(openClass);
+      }
+
+      /**
        * Toggles all accordion panes open or closed.
        *
        * Used both as an event listener callback, and called directly.
        */
       function toggleAll() {
         const labelEl = showHideButton.querySelector('.accordion-text');
-        const nextState = showHideButton.getAttribute('aria-expanded') !== 'true';
+        const nextState =
+          showHideButton.getAttribute('aria-expanded') !== 'true';
 
-        showHideButtonLabel.textContent = showHideButton.dataset[nextState ? 'hideAll' : 'showAll'];
+        showHideButtonLabel.textContent =
+          showHideButton.dataset[nextState ? 'hideAll' : 'showAll'];
         showHideButton.setAttribute('aria-expanded', nextState);
 
         for (let i = 0; i < numberOfPanes; i++) {
-          const currentButton = accordionPanes[i].querySelector('[aria-controls]');
-          const currentPane = accordionPanes[i].querySelector('.accordion-pane__content');
+          const currentButton =
+            accordionPanes[i].querySelector('[aria-controls]');
+          const currentPane = accordionPanes[i].querySelector(
+            '.accordion-pane__content',
+          );
 
           if (nextState) {
             expandPane(currentButton, currentPane);
-
           } else {
             collapsePane(currentButton, currentPane);
           }
@@ -90,22 +109,55 @@
        *     - mixed: -1
        */
       function getAccordionState() {
-        const expandedPanes = accordion.querySelectorAll(`.${openClass}`).length;
-        return expandedPanes
-           ? (expandedPanes === numberOfPanes ? 1 : -1)
-           : 0;
+        const expandedPanes = accordion.querySelectorAll(
+          `.${openClass}`,
+        ).length;
+        if (expandedPanes === numberOfPanes) {
+          return 1;
+        }
+        if (expandedPanes === 0) {
+          return 0;
+        }
+        return -1;
       }
 
-      const accordionPanes = accordion.querySelectorAll('.accordion-pane');
-      const numberOfPanes = accordionPanes.length;
-      const initClass = 'accordion--initialised';
-      const openClass = 'accordion-pane__content--open';
-      const breakpoint = accordion.dataset.accordionTabsSwitch || null;
-      const mq = window.matchMedia(`(max-width: '${breakpoint}')`);
-      const displayShowHide = accordion.hasAttribute('data-accordion-display-show-hide');
-      const allowMultiple = displayShowHide || accordion.hasAttribute('data-accordion-allow-multiple');
-      let showHideButton;
-      let showHideButtonLabel;
+      function showHideButtonClickHandler(e) {
+        const targetPaneId = e.target.getAttribute('aria-controls');
+        const targetPane = accordion.querySelectorAll(`#${targetPaneId}`);
+        const openPane = accordion.querySelectorAll(`.${openClass}`);
+
+        // Check the current state of the button and the content it controls.
+        if (e.target.getAttribute('aria-expanded') === 'false') {
+          // Close currently open pane.
+          if (openPane.length && !allowMultiple) {
+            const openPaneId = openPane[0].getAttribute('id');
+            const openPaneButton = accordion.querySelectorAll(
+              `[aria-controls="${openPaneId}"]`,
+            );
+
+            collapsePane(openPaneButton[0], openPane[0]);
+          }
+
+          // Show new pane.
+          expandPane(e.target, targetPane[0]);
+        } else {
+          // If target pane is currently open, close it.
+          collapsePane(e.target, targetPane[0]);
+        }
+
+        if (showHideButton) {
+          const accordionState = getAccordionState();
+          const toggleState =
+            showHideButton.getAttribute('aria-expanded') === 'true';
+
+          if (
+            (accordionState === 1 && !toggleState) ||
+            (!accordionState && toggleState)
+          ) {
+            toggleAll();
+          }
+        }
+      }
 
       const create = function create() {
         // Only initialise accordion if it hasn't already been done.
@@ -125,66 +177,31 @@
           content[0].setAttribute('id', id);
 
           // Hide default Heading text
-          if (heading) {  
-            heading.hidden = true;  
-          };
-          
+          if (heading) {
+            heading.hidden = true;
+          }
+
           if (button) {
             // Add aria-controls id to button and un-hide
             button.setAttribute('aria-controls', id);
             button.hidden = false;
-          
+
             // Add click event listener to the show/hide button.
-            button.addEventListener('click', e => {
-              const targetPaneId = e.target.getAttribute('aria-controls');
-              const targetPane = accordion.querySelectorAll(`#${targetPaneId}`);
-              const openPane = accordion.querySelectorAll(`.${openClass}`);
-
-              // Check the current state of the button and the content it controls.
-              if (e.target.getAttribute('aria-expanded') === 'false') {
-                // Close currently open pane.
-                if (openPane.length && !allowMultiple) {
-                  const openPaneId = openPane[0].getAttribute('id');
-                  const openPaneButton = accordion.querySelectorAll(
-                    `[aria-controls="${openPaneId}"]`,
-                  );
-
-                  collapsePane(openPaneButton[0], openPane[0]);
-                }
-
-                // Show new pane.
-                expandPane(e.target, targetPane[0]);
-              } else {
-                // If target pane is currently open, close it.
-                collapsePane(e.target, targetPane[0]);
-              }
-
-              if (showHideButton) {
-                const accordionState = getAccordionState();
-                const toggleState = showHideButton.getAttribute('aria-expanded') === 'true';
-
-                if (
-                  (accordionState === 1 && !toggleState) ||
-                  (!accordionState && toggleState)
-                ) {
-                  toggleAll();
-                }
-              }
-            });
-          };
+            button.addEventListener('click', showHideButtonClickHandler);
+          }
 
           if (button) {
             if (displayShowHide) {
               showHideButton = accordion.querySelector('.accordion-toggle-all');
               showHideButton.hidden = false;
               showHideButton.addEventListener('click', toggleAll);
-              showHideButtonLabel = showHideButton.querySelector('.accordion-text');
+              showHideButtonLabel =
+                showHideButton.querySelector('.accordion-text');
             }
 
             // Add init class.
             accordion.classList.add(initClass);
-          };
-
+          }
         }
       };
 
@@ -192,19 +209,19 @@
         for (let i = 0; i < numberOfPanes; i++) {
           // Remove id attributes from buttons in accordion pane titles.
           const button = accordion
-            .querySelectorAll('.accordion-pane__title')[i]
-            .querySelector('button')
+            .querySelectorAll('.accordion-pane__title')
+            [i].querySelector('button')
             .removeAttribute('id');
-          
+
           // Hide buttons in accordion pane titles.
           if (button) {
             button.hidden = true;
           }
 
           // Un-hide default heading text
-          const heading =  accordion
-            .querySelectorAll('.accordion-pane__title')[i]
-            .querySelector('.accordion-pane__heading');
+          const heading = accordion
+            .querySelectorAll('.accordion-pane__title')
+            [i].querySelector('.accordion-pane__heading');
 
           if (heading) {
             heading.hidden = false;
@@ -247,7 +264,7 @@
       // Trigger create/destroy functions at different screen widths
       // based on the value of data-accordion-tabs-switch attribute.
       if (window.matchMedia) {
-        mq.addEventListener("change", () => {
+        mq.addEventListener('change', () => {
           breakpointCheck();
         });
         breakpointCheck();
