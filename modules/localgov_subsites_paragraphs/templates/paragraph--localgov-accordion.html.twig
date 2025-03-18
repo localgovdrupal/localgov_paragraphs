@@ -64,7 +64,7 @@
       {% if paragraph.localgov_display_show_hide_all.value == 1 %}
         {% set show_all = 'Show all sections'|t %}
         {% set hide_all = 'Hide all sections'|t %}
-        <button type="button" class="accordion-toggle-all" aria-expanded="false" data-show-all="{{ show_all }}" data-hide-all="{{ hide_all }}" hidden>
+        <button type="button" class="accordion-toggle-all" aria-expanded="false" data-show-all="{{ show_all }}" data-hide-all="{{ hide_all }}">
           <span class="accordion-icon" aria-hidden="true"></span>
           <span class="accordion-text">
             {{ show_all }}
