@@ -5,6 +5,7 @@
 
 .layout--twocol {
   --lgd-page-section-gap: 0;
+
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--lgd-page-section-gap);

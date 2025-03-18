@@ -10,9 +10,9 @@
 
 /* 'Grid' theme. */
 .box-links-listing--grid .box-links-listing__list-item {
-  border: 1px solid #f2f2f2;
   margin: 0 -1px -1px 0;
   padding: 20px;
+  border: 1px solid #f2f2f2;
 }
 
 /* 'Boxes' theme. */
