@@ -5,6 +5,7 @@
  * LocalGovDrupal Subsites Paragraphs module file.
  */
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\ByteSizeMarkup;
 use Drupal\Core\Url;
@@ -143,8 +144,9 @@ function localgov_subsites_paragraphs_preprocess_paragraph(&$variables) {
       $button = $paragraph->get('localgov_button')->first()->getValue();
       $variables['button_url'] = Url::fromUri($button['uri']);
     }
-    if ($paragraph->get('localgov_background_image')->entity) {
-      $fid = $paragraph->get('localgov_background_image')->entity->field_media_image[0]->getValue()['target_id'];
+    $background_image = $paragraph->get('localgov_background_image')->entity;
+    if ($background_image instanceof EntityInterface) {
+      $fid = $background_image->field_media_image[0]->getValue()['target_id'];
       $file_url = File::load($fid)->getFileUri();
 
       // Get the image url for the background, falling back to the full
