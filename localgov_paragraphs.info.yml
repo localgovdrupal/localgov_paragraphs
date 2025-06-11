@@ -27,5 +27,6 @@ dependencies:
   - paragraphs:paragraphs
   - paragraphs:paragraphs_library
   # LocalGovDrupal
+  - localgov_core:localgov_core
   - localgov_core:localgov_media
   - localgov_topics:localgov_topics

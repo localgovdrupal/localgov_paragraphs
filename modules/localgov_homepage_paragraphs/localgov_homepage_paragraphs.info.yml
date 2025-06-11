@@ -16,4 +16,5 @@ dependencies:
   - fontawesome:fontawesome
   - paragraphs:paragraphs
   # LocalGov Drupal modules.
+  - localgov_core:localgov_core
   - localgov_core:localgov_media
