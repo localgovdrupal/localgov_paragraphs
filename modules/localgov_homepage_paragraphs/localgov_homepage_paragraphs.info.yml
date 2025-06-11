@@ -6,6 +6,7 @@ core_version_requirement: ^10 || ^11
 dependencies:
   # Drupal core modules.
   - drupal:link
+  - drupal:media
   - drupal:node
   - drupal:options
   - drupal:responsive_image

@@ -5,6 +5,7 @@ type: module
 package: LocalGov Drupal
 
 dependencies:
+  - drupal:filter
   - drupal:media
   - drupal:options
   - paragraphs:paragraphs

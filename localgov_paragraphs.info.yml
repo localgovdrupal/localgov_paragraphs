@@ -6,8 +6,10 @@ core_version_requirement: ^10.2 || ^11
 
 dependencies:
   # Drupal
+  - drupal:filter
   - drupal:field
   - drupal:link
+  - drupal:media
   - drupal:options
   - drupal:taxonomy
   - drupal:telephone
