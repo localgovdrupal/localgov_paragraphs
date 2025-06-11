@@ -28,6 +28,10 @@ class ParagraphsAdministrationTest extends ParagraphsTestBase {
    * @var array
    */
   protected static $modules = [
+    'filter',
+    'media',
+    'localgov_core',
+    'localgov_media',
     'localgov_paragraphs',
   ];
 

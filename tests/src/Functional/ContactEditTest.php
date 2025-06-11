@@ -17,6 +17,10 @@ class ContactEditTest extends BrowserTestBase {
    * @var array
    */
   protected static $modules = [
+    'filter',
+    'media',
+    'localgov_core',
+    'localgov_media',
     'localgov_paragraphs',
     'paragraphs_library',
   ];
