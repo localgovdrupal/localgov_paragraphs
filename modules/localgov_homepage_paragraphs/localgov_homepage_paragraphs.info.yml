@@ -3,6 +3,8 @@ name: LocalGov Drupal homepage paragraphs
 description: Paragraph bundles used in the LocalGov Drupal homepage.
 package: LocalGov Drupal
 core_version_requirement: ^10 || ^11
+container_rebuild_required: true
+
 dependencies:
   # Drupal core modules.
   - drupal:link
