@@ -3,7 +3,7 @@ description: Provides core paragraph components for the LocalGov Drupal distribu
 package: LocalGov Drupal
 type: module
 core_version_requirement: ^10.2 || ^11
-container_rebuild_required: true
+container_rebuild_required: false
 
 dependencies:
   # Drupal
