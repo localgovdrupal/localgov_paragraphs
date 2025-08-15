@@ -32,6 +32,11 @@ class ParagraphsAdministrationTest extends ParagraphsTestBase {
   ];
 
   /**
+   * {@inheritdoc}
+   */
+  protected $profile = 'localgov';
+
+  /**
    * Tests the LocalGovDrupal core paragraph types.
    */
   public function testParagraphsTypes() {
