@@ -23,6 +23,11 @@ class ContactEditTest extends BrowserTestBase {
 
   /**
    * {@inheritdoc}
+   */
+  protected $profile = 'localgov';
+
+  /**
+   * {@inheritdoc}
    *
    * Claro is throwing the exception.
    */
