@@ -33,6 +33,9 @@
             "drupal/geolocation": {
                 "Fix schema #3138668": "https://www.drupal.org/files/issues/2021-01-27/geolocation-google-maps-schema-update-3138668-5.patch"
             },
+            "drupal/layout_paragraphs": {
+                "Fix deprecated implicit nullable: https://www.drupal.org/project/layout_paragraphs/issues/3502083": "https://www.drupal.org/files/issues/2025-09-23/fix-implicit-nullable-warnings-3502083-7.patch"
+            },
             "drupal/tablefield": {
                 "Row order identifiers localgov_paragraphs:#212 https://www.drupal.org/project/tablefield/issues/3441319": "https://www.drupal.org/files/issues/2025-02-14/3441319-19.patch"
             }
