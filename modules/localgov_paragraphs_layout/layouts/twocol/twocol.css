@@ -3,7 +3,7 @@
  * Provides the layout styles for localgov_layout_twocol.
  */
 
-.layout--localgov-twocol {
+.layout--twocol.layout--twocol--localgov {
   --lgd-page-section-gap: 0;
 
   display: grid;
@@ -11,13 +11,13 @@
   gap: var(--lgd-page-section-gap);
 }
 
-.layout--localgov-twocol > .layout__region {
+.layout--twocol.layout--twocol--localgov > .layout__region {
   /* To equalise the heights in each row */
   display: grid;
 }
 
 @media screen and (min-width: 40em) {
-  .layout--localgov-twocol {
+  .layout--twocol.layout--twocol--localgov {
     /*
       If you need to add some gap between items here, you can set the
       --lgd-page-section-gap variable to whatever gap size you need.
