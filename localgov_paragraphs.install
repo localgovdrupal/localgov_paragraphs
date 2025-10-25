@@ -111,6 +111,11 @@ function localgov_paragraphs_update_9004() {
   EntityFormDisplay::create($entityFormDisplayConfig)->save();
 }
 
+/**
+ * Implements hook_update_N().
+ *
+ * Ensure the localgov_paragraphs_usage view is installed.
+ */
 function localgov_paragraphs_update_10001() {
   // If the view for paragraphs usage does not exist, import the config for it
   // from the config/install folder.
