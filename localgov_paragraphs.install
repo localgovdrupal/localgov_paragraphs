@@ -116,7 +116,7 @@ function localgov_paragraphs_update_9004() {
  *
  * Ensure the localgov_paragraphs_usage view is installed.
  */
-function localgov_paragraphs_update_10001() {
+function localgov_paragraphs_update_10001(): void {
   // If the view for paragraphs usage does not exist, import the config for it
   // from the config/install folder.
   $view_storage = \Drupal::entityTypeManager()->getStorage('view');
