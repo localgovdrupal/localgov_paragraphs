@@ -1,0 +1,15 @@
+# Secondary tab - Overview (default paragraphs library page)
+localgov_paragraphs.overview:
+  route_name: view.paragraphs_library.page_1
+  title: 'Overview'
+  parent_id: entity.paragraphs_library_item.collection
+  base_route: system.admin_content
+  weight: 0
+
+# Secondary tab - Usage
+localgov_paragraphs.usage:
+  route_name: view.localgov_paragraphs_usage.localgov_paragraphs_usage
+  title: 'Usage'
+  parent_id: entity.paragraphs_library_item.collection
+  base_route: system.admin_content
+  weight: 1
