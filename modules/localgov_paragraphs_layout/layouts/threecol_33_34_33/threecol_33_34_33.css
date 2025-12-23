@@ -3,7 +3,7 @@
  * Provides the layout styles for localgov_layout_threecol_33_34_33.
  */
 
-.layout--threecol.layout--threecol-33-34-33--localgov {
+.layout--localgov-threecol-33-34-33 {
   --lgd-page-section-gap: 0;
 
   display: grid;
@@ -11,13 +11,13 @@
   gap: var(--lgd-page-section-gap);
 }
 
-.layout--threecol.layout--threecol-33-34-33--localgov > .layout__region {
+.layout--localgov-threecol-33-34-33 > .layout__region {
   /* To equalise the heights in each row */
   display: grid;
 }
 
 @media screen and (min-width: 40em) {
-  .layout--threecol.layout--threecol-33-34-33--localgov {
+  .layout--localgov-threecol-33-34-33 {
     /*
       If you need to add some gap between items here, you can set the
       --lgd-page-section-gap variable to whatever gap size you need.
