@@ -2,6 +2,6 @@
  * @file
  * Provides the layout styles for localgov_layout_onecol.
  */
-.layout--onecol--localgov .layout__region {
+.layout--onecol.layout--onecol--localgov .layout__region {
   width: 100%;
 }
