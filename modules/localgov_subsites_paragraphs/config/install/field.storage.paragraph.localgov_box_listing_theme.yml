@@ -11,11 +11,17 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: grid
-      label: Grid
-    -
       value: boxes
-      label: Boxes
+      label: 'Column (1 per row)'
+    -
+      value: grid
+      label: 'Grid (2 per row)'
+    -
+      value: grid-3
+      label: 'Grid (3 per row)'
+    -
+      value: grid-4
+      label: 'Grid (4 per row)'
   allowed_values_function: ''
 module: options
 locked: false
