@@ -110,3 +110,20 @@ function localgov_paragraphs_update_9004() {
   $entityFormDisplayConfig = Yaml::parseFile($modulePath . '/config/install/core.entity_form_display.paragraph.localgov_numbered_text.default.yml');
   EntityFormDisplay::create($entityFormDisplayConfig)->save();
 }
+
+/**
+ * Implements hook_update_N().
+ *
+ * Ensure the localgov_paragraphs_usage view is installed.
+ */
+function localgov_paragraphs_update_10001(): void {
+  // If the view for paragraphs usage does not exist, import the config for it
+  // from the config/install folder.
+  $view_storage = \Drupal::entityTypeManager()->getStorage('view');
+  $view = $view_storage->load('localgov_paragraphs_usage');
+  if (!$view) {
+    $modulePath = \Drupal::service('extension.list.module')->getPath('localgov_paragraphs');
+    $viewConfig = Yaml::parseFile($modulePath . '/config/install/views.view.localgov_paragraphs_usage.yml');
+    $view_storage->create($viewConfig)->save();
+  }
+}
